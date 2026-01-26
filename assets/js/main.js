@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const followMarkup = `
   <span class="cta-text">Follow us</span>
   <span class="cta-sep">&nbsp;</span>
-  <span>(</span><a href="https://linkedin.com" target="_blank" rel="noopener" class="cta-link">LI</a><span>)</span>
+  <span>(</span><a href="https://www.linkedin.com/company/risqlyai" target="_blank" rel="noopener" class="cta-link navbar__cta-text-two">&nbsp;LI&nbsp;</a><span>)</span>
   <span class="cta-sep">&nbsp;&amp;&nbsp;</span>
-  <span>(</span><a href="https://x.com" target="_blank" rel="noopener" class="cta-link">x</a><span>)</span>
+  <span>(</span><a href="https://x.com/RisqlyAI" target="_blank" rel="noopener" class="cta-link navbar__cta-text-two">&nbsp;x&nbsp;</a><span>
+  )</span>
 `;
 
   function updateNavbarTheme() {
@@ -18,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const offset = 80; // adjust to navbar height
 
     const allSections = [...sections]; // your normal sections
-    const footer = document.querySelector("footer"); // select footer if it exists
-    if (footer) allSections.push(footer); // treat footer as a section
 
     allSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
@@ -52,8 +51,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  window.addEventListener("scroll", updateNavbarTheme);
-  window.addEventListener("load", updateNavbarTheme);
+  function handleFooterThemeEarly() {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    function getFooterTriggerPoint() {
+      if (window.innerWidth < 640) return window.innerHeight * 0.9; // mobile
+      if (window.innerWidth < 1024) return window.innerHeight * 0.5; // tablet
+      return window.innerHeight * 0.6; // desktop
+    }
+
+    const footerRect = footer.getBoundingClientRect();
+    const triggerPoint = getFooterTriggerPoint(); // 80% screen
+
+    // 👉 It will trigger before footer
+    if (footerRect.top <= triggerPoint) {
+      navbar.classList.remove("light-theme", "dark-theme");
+      navbar.classList.add("dark-theme"); // footer theme
+
+      navbarCta.dataset.disabled = "true";
+      navbarCta.removeAttribute("href");
+    }
+  }
+
+  window.addEventListener("scroll", () => {
+    updateNavbarTheme();
+    handleFooterThemeEarly();
+  });
+
+  window.addEventListener("load", () => {
+    updateNavbarTheme();
+    handleFooterThemeEarly();
+  });
 });
 
 // Initialize Features Swiper
@@ -102,6 +131,12 @@ function openPopup(icon, title, description, tag) {
   }
   popupTitle.textContent = title;
   popupDescription.textContent = description;
+  const words = title.split(" ");
+  const mid = Math.ceil(words.length / 2);
+  popupTitle.innerHTML = `
+  ${words.slice(0, mid).join(" ")}<br>
+  ${words.slice(mid).join(" ")}
+`;
   if (tag) {
     popupTag.textContent = tag.textContent;
     popupTag.style.display = "block";
@@ -316,19 +351,18 @@ updateFooterHeight();
 window.addEventListener("resize", updateFooterHeight);
 
 /* GSAP Animations */
-gsap.registerPlugin(ScrollTrigger);
-
+gsap.registerPlugin(ScrollTrigger, SplitText);
 // 1. Navbar
 gsap.fromTo(
   ".navbar",
   { y: -100, opacity: 0 },
-  { y: 0, opacity: 1, delay: 0, duration: 2, ease: "power3.out" }
+  { y: 0, opacity: 1,  ease: "power3.out" }
 );
 
 gsap.fromTo(
   ".navbar__logo",
   { y: -70 },
-  { y: 0, delay: 0, duration: 2, ease: "power3.out" }
+  { y: 0, duration: 2, ease: "power3.out" }
 );
 
 gsap.fromTo(
@@ -341,14 +375,14 @@ gsap.fromTo(
 gsap.fromTo(
   ".navbar__menu",
   { y: -70 },
-  { y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
+  { y: 0, delay: 0.1, duration: 2, ease: "power3.out" }
 );
 
 // 3. CTA
 gsap.fromTo(
   ".navbar__cta",
   { y: -70 },
-  { y: 0, delay: 0.6, duration: 2, ease: "power3.out" }
+  { y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
 );
 
 // Hero Section
@@ -357,22 +391,22 @@ ScrollTrigger.batch(".hero", {
     gsap.fromTo(
       ".hero__image",
       { opacity: 0 },
-      { opacity: 1, delay: 0.4, duration: 3, ease: "power3.out" }
+      { opacity: 1, delay: 0.05, duration: 3, ease: "power3.out" }
     );
     gsap.fromTo(
       ".hero__label",
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.35, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
     gsap.fromTo(
       ".hero__title",
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.6, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.4, duration: 2, ease: "power3.out" }
     );
     gsap.fromTo(
       ".hero__description",
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.85, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.5, duration: 2, ease: "power3.out" }
     );
   },
   once: true,
@@ -385,7 +419,7 @@ gsap.fromTo(
   {
     opacity: 1,
     y: 0,
-    delay: 1,
+    delay: 0.8,
     stagger: 0.1,
     duration: 2,
     ease: "power3.out",
@@ -671,19 +705,37 @@ ScrollTrigger.create({
 
 // Scroll Scaling Sections (Parallax replacement)
 document.querySelectorAll(".scroll-scale").forEach((section) => {
-  gsap.fromTo(
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      markers:true,
+    },
+  });
+
+  // Step 1: Enter animation
+  tl.fromTo(
     section,
-    { scale: 0.98, opacity: 0.9, borderRadius: 20 },
-    {
-      scale: 1,
-      opacity: 1,
-      borderRadius: 0,
-      scrollTrigger: {
-        trigger: section,
-        start: "top bottom",
-        end: "top 65%",
-        scrub: true,
-      },
-    }
+    { opacity: 0.9, margin: "0 20px", borderRadius: 20 },
+    { opacity: 1, margin: "0 0px", borderRadius: 0, ease: "none" }
   );
+
+  // Step 2: Wait / gap effect
+  tl.to(section, {
+    margin: "0 0px",
+    borderRadius: 0,
+    opacity: 1,
+    duration: 1, // short pause
+    ease: "none",
+  });
+
+  // Step 3: Exit animation
+  tl.to(section, {
+    opacity: 0.9,
+    margin: "0 20px",
+    borderRadius: 20,
+    ease: "none",
+  });
 });

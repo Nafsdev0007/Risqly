@@ -51,13 +51,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // autoAlpha handles both opacity and visibility
   gsap.fromTo(
     "#cookiePopup",
-    { y: 100, autoAlpha: 0 },
+    { transform: "translateY(calc(100% + 1.5625vw))", },
     {
-      y: 0,
-      autoAlpha: 1,
-      duration: 1.8,
+      transform: "translateY(0)",
+      duration: 1,
       delay: 2,
-      ease: "power3.out",
+      ease: "cubic-bezier(.19, 1, .22, 1)",
     }
   );
 });
@@ -65,13 +64,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 // EXIT ANIMATION
 function animateAway() {
   gsap.to("#cookiePopup", {
-    y: 100,
-    autoAlpha: 0,
-    duration: 1.5,
-    ease: "power3.in",
-    onComplete: () => {
-      // Optional: Completely remove from DOM or just keep hidden
-      document.getElementById("cookiePopup").style.display = "none";
-    },
+    transform: "translateY(calc(100% + 1.5625vw))",
+    duration: 0.5,
+    ease: "cubic-bezier(.19, 1, .22, 1)",
   });
 }
