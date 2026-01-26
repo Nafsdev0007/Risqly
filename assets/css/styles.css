@@ -872,7 +872,7 @@
   }
 
   .features__icon{
-    width: clamp(1.875rem, 0.659rem + 2.53vw, 2.813rem);
+    width: clamp(1.875rem, 0.253rem + 3.38vw, 3.125rem);
   }
   .features__popup-icon{
     width: clamp(1.875rem, 0.659rem + 2.53vw, 2.813rem);
