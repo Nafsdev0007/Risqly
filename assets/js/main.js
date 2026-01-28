@@ -418,8 +418,8 @@ ScrollTrigger.batch(".hero", {
     );
 
     gsap.from(".hero__image", {
-      scale: 0.9,
-      duration: 1,
+      scale: 0.95,
+      duration: 1.3,
     });
 
     gsap.fromTo(
@@ -427,15 +427,22 @@ ScrollTrigger.batch(".hero", {
       { opacity: 0, y: 70 },
       { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
+
+    const heroTitleSplit = new SplitText(".hero__title", { type: "words" });
+    const heroDescriptionSplit = new SplitText(".hero__description", { type: "lines", mask:"lines" });
+
     gsap.fromTo(
-      ".hero__title",
+      heroTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.4, duration: 2, ease: "power3.out" }
+      { opacity: 1, stagger:0.07 ,y: 0, delay: 0.4, duration: 2, ease: "power3.out" }
     );
+
+    // gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
+
     gsap.fromTo(
-      ".hero__description",
+      heroDescriptionSplit.lines,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.5, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.5, stagger:0.07, duration: 2, ease: "power3.out" }
     );
   },
   once: true,
@@ -565,15 +572,19 @@ ScrollTrigger.create({
       { opacity: 0, y: 70 },
       { opacity: 1, y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
     );
+
+    const featureTitleSplit = new SplitText(".features__header .title", { type: "words" });
+    const featureDescriptionSplit = new SplitText(".features__header .subtitle", { type: "lines", mask:"lines" });
+
     gsap.fromTo(
-      ".features__header .title",
+      featureTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 1, delay: 0.5, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 1, delay: 0.5,stagger:0.07, duration: 2, ease: "power3.out" }
     );
     gsap.fromTo(
-      ".features__header .subtitle",
+      featureDescriptionSplit.lines,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.7, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.7,stagger:0.07, duration: 2, ease: "power3.out" }
     );
   },
   once: true,
@@ -611,10 +622,14 @@ ScrollTrigger.create({
       { opacity: 0, y: 70 },
       { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
+
+    const trainingTitleSplit = new SplitText(".training__content h2", { type: "words" });
+
+
     gsap.fromTo(
-      ".training__content h2",
+      trainingTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, delay: 0.3,stagger:0.07, duration: 2, ease: "power3.out" }
     );
   },
   once: true,

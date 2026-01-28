@@ -53,7 +53,7 @@
   color: var(--white-70);
   margin-top: calc(20 * var(--scale));
   max-width: 30ch;
-  opacity: 0;
+  opacity:1;
 }
 
 .hero__features {
@@ -513,11 +513,9 @@
 
 .features__header .title {
   color: white;
-  opacity: 0;
 }
 .features__header .subtitle {
   color: var(--white-50);
-  opacity: 0;
 }
 
 .icon-stacks {
@@ -1215,7 +1213,6 @@
 }
 .training h2 {
   margin-left: 0;
-  opacity: 0;
 }
 
 .training__content .badge {
