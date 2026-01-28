@@ -47,18 +47,26 @@ window.addEventListener("scroll", () => {
 
 // Cookie
 document.addEventListener("DOMContentLoaded", (event) => {
-  // ENTRANCE ANIMATION
-  // autoAlpha handles both opacity and visibility
-  gsap.fromTo(
-    "#cookiePopup",
-    { transform: "translateY(calc(100% + 1.5625vw))", },
-    {
-      transform: "translateY(0)",
-      duration: 1,
-      delay: 2,
-      ease: "cubic-bezier(.19, 1, .22, 1)",
-    }
-  );
+  // ✅ force starting position (hidden below)
+  gsap.set("#cookiePopup", {
+    transform: "translateY(calc(100% + 1.5625vw))",
+  });
+
+  const tl = gsap.timeline({ delay: 2 });
+
+  // 1) very fast jump (80% distance)
+  tl.to("#cookiePopup", {
+    transform: "translateY(-2%)",
+    duration: 1.4,
+    ease: "power3.out",
+  },'a',);
+
+  // 2) slow settle (last 20%)
+  tl.to("#cookiePopup", {
+    transform: "translateY(-6%)",
+    duration: 1.5,
+    ease: "power3.out",
+  },0.5);
 });
 
 // EXIT ANIMATION
@@ -66,6 +74,6 @@ function animateAway() {
   gsap.to("#cookiePopup", {
     transform: "translateY(calc(100% + 1.5625vw))",
     duration: 0.5,
-    ease: "cubic-bezier(.19, 1, .22, 1)",
+    ease: "cubic-bezier(0.06, 0, 0, 1)",
   });
 }

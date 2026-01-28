@@ -659,21 +659,19 @@ h6,
   .cta-x {
     height: 1.5em;
   }
-
 }
 
 @media (min-width: 1025px) {
-  .navbar__menu{
+  .navbar__menu {
     margin-right: clamp(16.8rem, -0.571rem + 27.14vw, 22.5rem);
   }
 }
 
-@media (min-width:768px ) and (max-width: 1024px) {
-  .navbar__menu{
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar__menu {
     margin-right: clamp(12.5rem, -0.4rem + 26.88vw, 16.8rem);
   }
 }
-
 
 .navbar__cta .cta-link::after {
   content: "";
@@ -870,7 +868,6 @@ h6,
   width: 14em;
   padding: 24px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: fixed;
   bottom: 15px;
   right: 30px;
@@ -881,22 +878,62 @@ h6,
   z-index: 1000;
 }
 
-/* The Close Button (Top Right) */
 .cookie-close {
   position: absolute;
   top: 15px;
   right: 15px;
   background-color: #ececf0;
+  font-size: 14px;
+  color: var(--dark);
+  font-size: calc(22 * var(--scale));
+  font-weight: 500;
+  line-height: 1;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
-  color: #0d1c3d;
+  padding: 0;
   cursor: pointer;
-  font-weight: 500;
-  padding: 0 0;
-  line-height: 1;
-  opacity: 1;
+  width: calc(33 * var(--scale));
+  height: calc(33 * var(--scale));
+  cursor: pointer;
   transition: background-color 0.2s;
+  overflow: hidden;
+}
+
+.cookie-close::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #dcdce4;
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+  transition: scale 0.3s ease;
+  scale: 0;
+}
+
+.cookie-close span {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s;
+  z-index: 2;
+  rotate: 45deg;
+}
+
+.cookie-close:hover {
+  color: var(--dark);
+  /* background: white; */
+}
+
+.cookie-close:hover span {
+  rotate: 135deg;
+  transition: all 0.3s;
+
+  /* background: white; */
+}
+
+.cookie-close:hover::before {
+  scale: 1;
 }
 
 .cookie-close svg {
