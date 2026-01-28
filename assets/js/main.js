@@ -8,10 +8,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const followMarkup = `
   <span class="cta-text">Follow us</span>
   <span class="cta-sep">&nbsp;</span>
-  <span>(</span><a href="https://www.linkedin.com/company/risqlyai" target="_blank" rel="noopener" class="cta-link navbar__cta-text-two">&nbsp;LI&nbsp;</a><span>)</span>
+
+  (&nbsp;<span class="cta-social cta-li">
+     <a href="https://www.linkedin.com/company/risqlyai"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-li">LI</a>
+       
+       <a href="https://www.linkedin.com/company/risqlyai"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-li">LI</a>
+    
+  </span>&nbsp;)
+
   <span class="cta-sep">&nbsp;&amp;&nbsp;</span>
-  <span>(</span><a href="https://x.com/RisqlyAI" target="_blank" rel="noopener" class="cta-link navbar__cta-text-two">&nbsp;x&nbsp;</a><span>
-  )</span>
+
+  (&nbsp;<span class="cta-social cta-x">
+     <a href="https://x.com/RisqlyAI"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-x">X</a>
+
+       <a href="https://x.com/RisqlyAI"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-x">X</a>
+  </span>&nbsp;)
 `;
 
   function updateNavbarTheme() {
@@ -356,7 +379,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 gsap.fromTo(
   ".navbar",
   { y: -100, opacity: 0 },
-  { y: 0, opacity: 1,  ease: "power3.out" }
+  { y: 0, opacity: 1, ease: "power3.out" }
 );
 
 gsap.fromTo(
@@ -393,6 +416,12 @@ ScrollTrigger.batch(".hero", {
       { opacity: 0 },
       { opacity: 1, delay: 0.05, duration: 3, ease: "power3.out" }
     );
+
+    gsap.from(".hero__image", {
+      scale: 0.9,
+      duration: 1,
+    });
+
     gsap.fromTo(
       ".hero__label",
       { opacity: 0, y: 70 },
@@ -709,23 +738,25 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
     scrollTrigger: {
       trigger: section,
       start: "top bottom",
-      end: "bottom top",
+      end: "bottom center",
       scrub: true,
-      markers:false,
+      markers: false,
     },
   });
 
   // Step 1: Enter animation
   tl.fromTo(
     section,
-    { opacity: 0.9, margin: "0 20px", borderRadius: 20 },
-    { opacity: 1, margin: "0 0px", borderRadius: 0, ease: "none" }
+    {
+      opacity: 0.9,
+      clipPath: "inset(0% 2% 0% 2% round 1.5%)",
+    },
+    { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
   );
 
   // Step 2: Wait / gap effect
   tl.to(section, {
-    margin: "0 0px",
-    borderRadius: 0,
+    clipPath: "inset(0% 0% 0% 0% round 0%)",
     opacity: 1,
     duration: 1, // short pause
     ease: "none",
@@ -734,8 +765,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
   // Step 3: Exit animation
   tl.to(section, {
     opacity: 0.9,
-    margin: "0 20px",
-    borderRadius: 20,
+    clipPath: "inset(0% 2% 0% 2% round 1.5%)",
     ease: "none",
   });
 });

@@ -544,17 +544,13 @@ h6,
 
 .navbar__container {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   position: relative;
 }
 
 /* Desktop Menu */
 .navbar__menu {
-  position: absolute;
-  top: 50%;
-  left: 49.8%;
-  transform: translate(-50%, -50%);
   display: none;
   transition: background-color 0.4s ease;
 }
@@ -589,6 +585,9 @@ h6,
   margin-left: auto;
   margin-right: calc(16 * var(--scale));
   display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .navbar__cta-overflow {
@@ -621,14 +620,55 @@ h6,
 }
 
 .navbar__cta .cta-link {
-  pointer-events: auto;
+  pointer-events: all;
   cursor: pointer;
   text-decoration: none;
   opacity: 0.85;
   color: inherit;
-
   display: inline-block;
   transform: translateZ(0);
+}
+
+.cta-li {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+}
+
+.cta-x {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+}
+
+@media (min-width: 768px) {
+  .cta-li {
+    height: 2em;
+  }
+
+  .cta-x {
+    height: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-li {
+    height: 1.5em;
+  }
+
+  .cta-x {
+    height: 1.5em;
+  }
+
+  .navbar__menu {
+    margin-right: 16.8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar__menu {
+    margin-right: 22.5rem;
+  }
 }
 
 .navbar__cta .cta-link::after {
@@ -762,12 +802,18 @@ h6,
     display: none;
   }
 
+  .navbar__container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
   .navbar__menu {
     display: flex;
     gap: calc(12 * var(--scale));
     justify-content: center;
     padding: calc(5 * var(--scale));
-    margin: 0 auto;
+    margin-right: 12.5rem;
     border-radius: calc(6 * var(--scale));
     background: var(--white-20, rgba(255, 255, 255, 0.2));
     backdrop-filter: blur(22px);
@@ -784,7 +830,7 @@ h6,
     display: none !important;
   }
   .navbar {
-    padding: calc(15 * var(--scale)) calc(30 * var(--scale));
+    padding: calc(20 * var(--scale)) calc(30 * var(--scale));
   }
   .navbar__container {
     justify-content: space-between;
@@ -809,6 +855,8 @@ h6,
     background-color: var(--grey);
   }
 }
+/*  */
+
 /* ==========================================================
    COOKIE
    ========================================================== */
@@ -848,11 +896,11 @@ h6,
   transition: background-color 0.2s;
 }
 
-.cookie-close svg{
+.cookie-close svg {
   transition: all 0.15s ease-in-out;
 }
 
-.cookie-card:hover .cookie-close svg{
+.cookie-card:hover .cookie-close svg {
   rotate: -45deg;
 }
 
@@ -1021,11 +1069,9 @@ h6,
 @media (min-width: 768px) {
   .footer {
     padding: calc(60 * var(--scale)) calc(34 * var(--scale))
-      calc(50 * var(--scale));
-    margin: calc(30 * var(--scale)) 15px
-      15px 15px;
+      calc(34 * var(--scale));
+    margin: clamp(1.063rem, -1.375rem + 5.08vw, 1.875rem) 15px 0px 15px;
   }
-
   .footer__wrapper {
     gap: calc(265 * var(--scale));
   }
@@ -1143,5 +1189,11 @@ h6,
   }
   .footer__legal-link:hover::before {
     color: var(--white-50);
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer {
+    margin: clamp(1.875rem, -0.037rem + 2.99vw, 2.5rem) 15px 0px 15px;
   }
 }
