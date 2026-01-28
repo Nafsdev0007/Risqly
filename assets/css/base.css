@@ -660,16 +660,20 @@ h6,
     height: 1.5em;
   }
 
-  .navbar__menu {
-    margin-right: 16.8rem;
+}
+
+@media (min-width: 1025px) {
+  .navbar__menu{
+    margin-right: clamp(16.8rem, -0.571rem + 27.14vw, 22.5rem);
   }
 }
 
-@media (min-width: 1280px) {
-  .navbar__menu {
-    margin-right: 22.5rem;
+@media (min-width:768px ) and (max-width: 1024px) {
+  .navbar__menu{
+    margin-right: clamp(12.5rem, -0.4rem + 26.88vw, 16.8rem);
   }
 }
+
 
 .navbar__cta .cta-link::after {
   content: "";
@@ -813,7 +817,6 @@ h6,
     gap: calc(12 * var(--scale));
     justify-content: center;
     padding: calc(5 * var(--scale));
-    margin-right: 12.5rem;
     border-radius: calc(6 * var(--scale));
     background: var(--white-20, rgba(255, 255, 255, 0.2));
     backdrop-filter: blur(22px);
