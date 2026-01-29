@@ -1235,6 +1235,6 @@ h6,
 
 @media (min-width: 1025px) {
   .footer {
-    margin: clamp(1.875rem, -0.037rem + 2.99vw, 2.5rem) 15px 0px 15px;
+    margin: calc(42 * var(--scale)) 15px 0px 15px;
   }
 }
