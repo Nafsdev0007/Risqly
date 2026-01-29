@@ -56,6 +56,7 @@ body {
   font-feature-settings: "ss02" on, "ss05" on, "ss08" on;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 input,
@@ -892,8 +893,8 @@ h6,
   border-radius: 5px;
   padding: 0;
   cursor: pointer;
-  width: calc(33 * var(--scale));
-  height: calc(33 * var(--scale));
+  width: 31px;
+  height: 31px;
   cursor: pointer;
   transition: background-color 0.2s;
   overflow: hidden;

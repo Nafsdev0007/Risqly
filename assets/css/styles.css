@@ -35,6 +35,7 @@
   color: var(--white);
   opacity: 0;
 }
+
 .hero__label .star {
   font-size: calc(10 * var(--scale));
 }
@@ -248,7 +249,7 @@
 
 .comparison {
   display: flex;
-  gap: calc(16 * var(--scale));
+  gap: calc(10 * var(--scale));
   flex-wrap: wrap;
   margin-top: calc(42 * var(--scale));
 }
@@ -312,7 +313,7 @@
     margin-top: calc(64 * var(--scale));
   }
   .compare__card {
-    padding: calc(64 * var(--scale)) calc(80 * var(--scale));
+    padding: calc(64 * var(--scale)) calc(75 * var(--scale));
   }
   .compare__card ul {
     margin-top: calc(36 * var(--scale));

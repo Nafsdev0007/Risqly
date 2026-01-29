@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      const sectionTop = scrollY + rect.top - 50;
+      const sectionTop = scrollY + rect.top ;
       const sectionBottom = sectionTop + rect.height;
 
       if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
@@ -411,6 +411,7 @@ gsap.fromTo(
 // Hero Section
 ScrollTrigger.batch(".hero", {
   onEnter: () => {
+    
     gsap.fromTo(
       ".hero__image",
       { opacity: 0 },
@@ -418,7 +419,7 @@ ScrollTrigger.batch(".hero", {
     );
 
     gsap.from(".hero__image", {
-      scale: 0.95,
+      scale: 0.97,
       duration: 1.3,
     });
 
@@ -429,12 +430,22 @@ ScrollTrigger.batch(".hero", {
     );
 
     const heroTitleSplit = new SplitText(".hero__title", { type: "words" });
-    const heroDescriptionSplit = new SplitText(".hero__description", { type: "lines", mask:"lines" });
+    const heroDescriptionSplit = new SplitText(".hero__description", {
+      type: "lines",
+      mask: "lines",
+    });
 
     gsap.fromTo(
       heroTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, stagger:0.07 ,y: 0, delay: 0.4, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        stagger: 0.07,
+        y: 0,
+        delay: 0.4,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
 
     // gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
@@ -442,7 +453,14 @@ ScrollTrigger.batch(".hero", {
     gsap.fromTo(
       heroDescriptionSplit.lines,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.5, stagger:0.07, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        stagger: 0.07,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
   },
   once: true,
@@ -573,18 +591,37 @@ ScrollTrigger.create({
       { opacity: 1, y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
     );
 
-    const featureTitleSplit = new SplitText(".features__header .title", { type: "words" });
-    const featureDescriptionSplit = new SplitText(".features__header .subtitle", { type: "lines", mask:"lines" });
+    const featureTitleSplit = new SplitText(".features__header .title", {
+      type: "words",
+    });
+    const featureDescriptionSplit = new SplitText(
+      ".features__header .subtitle",
+      { type: "lines", mask: "lines" }
+    );
 
     gsap.fromTo(
       featureTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 1, delay: 0.5,stagger:0.07, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        y: 1,
+        delay: 0.5,
+        stagger: 0.07,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
     gsap.fromTo(
       featureDescriptionSplit.lines,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.7,stagger:0.07, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.7,
+        stagger: 0.07,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
   },
   once: true,
@@ -623,13 +660,21 @@ ScrollTrigger.create({
       { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
 
-    const trainingTitleSplit = new SplitText(".training__content h2", { type: "words" });
-
+    const trainingTitleSplit = new SplitText(".training__content h2", {
+      type: "words",
+    });
 
     gsap.fromTo(
       trainingTitleSplit.words,
       { opacity: 0, y: 70 },
-      { opacity: 1, y: 0, delay: 0.3,stagger:0.07, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.3,
+        stagger: 0.07,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
   },
   once: true,
@@ -642,7 +687,7 @@ ScrollTrigger.create({
     gsap.fromTo(
       ".training__list li",
       { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, stagger: 0.2, duration: 2, ease: "power3.out" }
+      { opacity: 1, y: 0, stagger: 0.2, delay:0.8, duration: 2, ease: "power3.out" }
     );
   },
   once: true,
@@ -764,7 +809,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
     section,
     {
       opacity: 0.9,
-      clipPath: "inset(0% 2% 0% 2% round 1.5%)",
+      clipPath: "inset(0% 1.5% 0% 1.5% round 1%)",
     },
     { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
   );
@@ -773,14 +818,14 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
   tl.to(section, {
     clipPath: "inset(0% 0% 0% 0% round 0%)",
     opacity: 1,
-    duration: 1, // short pause
+    duration: 0.8, // short pause
     ease: "none",
   });
 
   // Step 3: Exit animation
   tl.to(section, {
     opacity: 0.9,
-    clipPath: "inset(0% 2% 0% 2% round 1.5%)",
+    clipPath: "inset(0% 1.5% 0% 1.5% round 1%)",
     ease: "none",
   });
 });
