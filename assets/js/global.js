@@ -49,7 +49,7 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   // ✅ force starting position (hidden below)
   gsap.set("#cookiePopup", {
-    transform: "translateY(calc(100% + 1.5625vw))",
+    transform: "translateY(calc(120% + 1.5625vw))",
   });
 
   const tl = gsap.timeline({ delay: 2 });
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 // EXIT ANIMATION
 function animateAway() {
   gsap.to("#cookiePopup", {
-    transform: "translateY(calc(100% + 1.5625vw))",
+    transform: "translateY(calc(120% + 1.5625vw))",
     duration: 0.5,
     ease: "cubic-bezier(0.06, 0, 0, 1)",
   });
