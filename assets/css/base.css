@@ -606,9 +606,9 @@ h6,
   will-change: transform;
   backface-visibility: hidden;
 }
-/*.navbar__cta:hover .navbar__cta-text {
+/* .navbar__cta:hover .navbar__cta-text {
   transform: translate(0px, -100%);
-}*/
+} */
 
 .navbar__cta[data-disabled="true"] {
   cursor: default;
