@@ -809,7 +809,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
     section,
     {
       opacity: 0.9,
-      clipPath: "inset(0% 1.5% 0% 1.5% round 1%)",
+      clipPath: "inset(0% 1% 0% 1% round 1%)",
     },
     { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
   );
@@ -825,7 +825,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
   // Step 3: Exit animation
   tl.to(section, {
     opacity: 0.9,
-    clipPath: "inset(0% 1.5% 0% 1.5% round 1%)",
+    clipPath: "inset(0% 1% 0% 1% round 1%)",
     ease: "none",
   });
 });
