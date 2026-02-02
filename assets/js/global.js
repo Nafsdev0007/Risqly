@@ -14,7 +14,6 @@ toggleButton.addEventListener("click", () => {
   overlay.style.display = "block";
   document.body.style.paddingRight = `${scrollbarWidth}px`;
   document.body.style.overflow = "hidden";
-  if (window.lenis) window.lenis.stop();
 });
 
 const closeMenu = () => {
@@ -24,7 +23,6 @@ const closeMenu = () => {
   document.body.style.paddingRight = "";
   document.body.style.overflow = "";
 
-  if (window.lenis) window.lenis.start();
 };
 
 closeButton.addEventListener("click", closeMenu);
