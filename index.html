@@ -1502,7 +1502,11 @@
               >
             </div>
             <div class="footer__copyright">
-              ©<span id="year"></span> Risqly LLC
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Risqly LLC
             </div>
           </div>
         </div>
@@ -1512,20 +1516,17 @@
     <script src="./assets/js/global.js"></script>
     <script type="module" src="./assets/js/main.js"></script>
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-    <script>
-      window.lenis = new Lenis({
-        duration: 0.6,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
+      // window.lenis = new Lenis({
+      //   duration: 0.6,
+      //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // });
 
-      function raf(time) {
-        window.lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+      // function raf(time) {
+      //   window.lenis.raf(time);
+      //   requestAnimationFrame(raf);
+      // }
 
-      requestAnimationFrame(raf);
+      // requestAnimationFrame(raf);
     </script>
   </body>
 </html>
