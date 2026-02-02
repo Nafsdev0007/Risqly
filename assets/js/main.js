@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      const sectionTop = scrollY + rect.top - 50 ;
+      const sectionTop = scrollY + rect.top ;
       const sectionBottom = sectionTop + rect.height;
 
       if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
@@ -99,12 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", () => {
     updateNavbarTheme();
-    // handleFooterThemeEarly();
+    handleFooterThemeEarly();
   });
 
   window.addEventListener("load", () => {
     updateNavbarTheme();
-    // handleFooterThemeEarly();
+    handleFooterThemeEarly();
   });
 });
 
@@ -793,39 +793,39 @@ ScrollTrigger.create({
 });
 
 // Scroll Scaling Sections (Parallax replacement)
-// document.querySelectorAll(".scroll-scale").forEach((section) => {
-//   const tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: section,
-//       start: "top bottom",
-//       end: "bottom center",
-//       scrub: true,
-//       markers: false,
-//     },
-//   });
+document.querySelectorAll(".scroll-scale").forEach((section) => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom",
+      end: "bottom center",
+      scrub: true,
+      markers: false,
+    },
+  });
 
-//   // Step 1: Enter animation
-//   tl.fromTo(
-//     section,
-//     {
-//       opacity: 0.9,
-//       clipPath: "inset(0% 1% 0% 1% round 1%)",
-//     },
-//     { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
-//   );
+  // Step 1: Enter animation
+  tl.fromTo(
+    section,
+    {
+      opacity: 0.9,
+      clipPath: "inset(0% 1% 0% 1% round 1%)",
+    },
+    { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
+  );
 
-//   // Step 2: Wait / gap effect
-//   tl.to(section, {
-//     clipPath: "inset(0% 0% 0% 0% round 0%)",
-//     opacity: 1,
-//     duration: 0.8, // short pause
-//     ease: "none",
-//   });
+  // Step 2: Wait / gap effect
+  tl.to(section, {
+    clipPath: "inset(0% 0% 0% 0% round 0%)",
+    opacity: 1,
+    duration: 0.8, // short pause
+    ease: "none",
+  });
 
-//   // Step 3: Exit animation
-//   tl.to(section, {
-//     opacity: 0.9,
-//     clipPath: "inset(0% 1% 0% 1% round 1%)",
-//     ease: "none",
-//   });
-// });
+  // Step 3: Exit animation
+  tl.to(section, {
+    opacity: 0.9,
+    clipPath: "inset(0% 1% 0% 1% round 1%)",
+    ease: "none",
+  });
+});
