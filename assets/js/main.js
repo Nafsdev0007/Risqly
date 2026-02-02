@@ -99,12 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", () => {
     updateNavbarTheme();
-    handleFooterThemeEarly();
+    // handleFooterThemeEarly();
   });
 
   window.addEventListener("load", () => {
     updateNavbarTheme();
-    handleFooterThemeEarly();
+    // handleFooterThemeEarly();
   });
 });
 
