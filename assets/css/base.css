@@ -867,7 +867,6 @@ h6,
   width: 14em;
   padding: 24px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: fixed;
   bottom: 15px;
   right: 30px;
@@ -876,8 +875,6 @@ h6,
   gap: 16px;
   color: #0d1c3d;
   z-index: 1000;
-  visibility: hidden;
-  opacity: 0;
 }
 
 .cookie-close {

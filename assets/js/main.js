@@ -74,37 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function handleFooterThemeEarly() {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-
-    function getFooterTriggerPoint() {
-      if (window.innerWidth < 640) return window.innerHeight * 0.9; // mobile
-      if (window.innerWidth < 1024) return window.innerHeight * 0.5; // tablet
-      return window.innerHeight * 0.6; // desktop
-    }
-
-    const footerRect = footer.getBoundingClientRect();
-    const triggerPoint = getFooterTriggerPoint(); // 80% screen
-
-    // 👉 It will trigger before footer
-    if (footerRect.top <= triggerPoint) {
-      navbar.classList.remove("light-theme", "dark-theme");
-      navbar.classList.add("dark-theme"); // footer theme
-
-      navbarCta.dataset.disabled = "true";
-      navbarCta.removeAttribute("href");
-    }
-  }
 
   window.addEventListener("scroll", () => {
     updateNavbarTheme();
-    handleFooterThemeEarly();
   });
 
   window.addEventListener("load", () => {
     updateNavbarTheme();
-    handleFooterThemeEarly();
   });
 });
 
