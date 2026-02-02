@@ -54,7 +54,7 @@
   color: var(--white-70);
   margin-top: calc(20 * var(--scale));
   max-width: 30ch;
-  opacity:1;
+  opacity: 1;
 }
 
 .hero__features {
@@ -566,9 +566,8 @@
 @media (min-width: 500px) and (max-width: 767px) {
   .features__icon {
     width: clamp(3.125rem, 0.625rem + 7.46vw, 4.375rem);
-  }  
+  }
 }
-
 
 .features__icon img,
 .features__icon svg {
@@ -638,7 +637,6 @@
   display: none;
 }
 
-
 .features__popup-close {
   position: absolute;
   top: calc(30 * var(--scale));
@@ -658,7 +656,6 @@
   overflow: hidden;
 }
 
-
 .features__popup-close::before {
   content: "";
   width: 100%;
@@ -672,11 +669,10 @@
   scale: 0;
 }
 
-
-.features__popup-close span{
+.features__popup-close span {
   position: relative;
   display: inline-block;
-  transition: all 0.3s ;
+  transition: all 0.3s;
   z-index: 2;
   rotate: 45deg;
 }
@@ -688,7 +684,7 @@
 
 .features__popup-close:hover span {
   rotate: 135deg;
-  transition: all 0.3s ;
+  transition: all 0.3s;
 
   /* background: white; */
 }
@@ -696,9 +692,6 @@
 .features__popup-close:hover::before {
   scale: 1;
 }
-
-
-
 
 .features__expand::before {
   content: "";
@@ -714,18 +707,15 @@
   scale: 0;
 }
 
-
 .features__expand span {
   position: relative;
   display: inline-block;
-  transition: all 0.3s ;
+  transition: all 0.3s;
   z-index: 2;
 }
 
-
-
 .swiper-slide:hover .features__expand span {
-  rotate: -90deg  ;
+  rotate: -90deg;
 }
 
 /* .features__expand:hover {
@@ -743,8 +733,6 @@
 .features__card:hover .features__expand::before {
   scale: 1;
 }
-
-
 
 /* Slider */
 
@@ -896,10 +884,10 @@
     margin-top: calc(194 * var(--scale));
   }
 
-  .features__icon{
+  .features__icon {
     width: clamp(1.438rem, -0.37rem + 3.77vw, 4.375rem);
   }
-  .features__popup-icon{
+  .features__popup-icon {
     width: clamp(1.875rem, 0.659rem + 2.53vw, 2.813rem);
   }
 
@@ -1284,12 +1272,11 @@
   .training__visual {
     order: -1;
   }
-  
+
   .training__visual img {
     margin-left: calc(-32 * var(--scale));
     width: clamp(21.875rem, -53.043rem + 156.08vw, 46.75rem);
     height: auto;
-
   }
   .training__content {
     padding-bottom: calc(80 * var(--scale));
@@ -1866,26 +1853,65 @@ select.form__field__input:active {
   backface-visibility: hidden;
 }
 
+.navbar__cta-text-li:nth-last-child(1) {
+  display: none;
 
-.cta-li {
-  display: flex;
-  flex-direction: column;
-  margin-top: 7px;
 }
 
-.cta-x {
-  display: flex;
-  flex-direction: column;
-  margin-top: 7px;
+.navbar__cta-text-x:nth-last-child(1) {
+  display: none;
 }
 
 @media (min-width: 768px) {
+
+  .navbar__cta-text-li:nth-last-child(1) {
+    display: flex;
+  
+  }
+  
+  .navbar__cta-text-x:nth-last-child(1) {
+    display: flex;
+  }
+  
+
+  .cta-li:hover .navbar__cta-text-li:nth-child(1) {
+    transform: translateY(-100%);
+  }
+  
+  .cta-li:hover .navbar__cta-text-li:nth-last-child(1) {
+    transform: translateY(-100%);
+  }
+  
+  .navbar__cta-text-x {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  .cta-x:hover .navbar__cta-text-x:nth-child(1) {
+    transform: translateY(-100%);
+  }
+  
+  .cta-x:hover .navbar__cta-text-x:nth-last-child(1) {
+    transform: translateY(-100%);
+  }
+  
   .cta-li {
     height: 2em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7px;
   }
 
   .cta-x {
     height: 2em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7px;
   }
 }
 
@@ -1897,33 +1923,6 @@ select.form__field__input:active {
   .cta-x {
     height: 1.5em;
   }
-}
-
-
-.cta-li:hover .navbar__cta-text-li:nth-child(1) {
-  transform: translateY(-100%);
-}
-
-.cta-li:hover .navbar__cta-text-li:nth-last-child(1) {
-  transform: translateY(-100%);
-}
-
-.navbar__cta-text-x {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.cta-x:hover .navbar__cta-text-x:nth-child(1) {
-  transform: translateY(-100%);
-}
-
-.cta-x:hover .navbar__cta-text-x:nth-last-child(1) {
-  transform: translateY(-100%);
 }
 
 
