@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      const sectionTop = scrollY + rect.top ;
+      const sectionTop = scrollY + rect.top - 50 ;
       const sectionBottom = sectionTop + rect.height;
 
       if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
