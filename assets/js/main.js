@@ -1,112 +1,112 @@
 // --------- Navbar theme switch --------- //
-// document.addEventListener("DOMContentLoaded", () => {
-//   const navbar = document.getElementById("navbar");
-//   const sections = document.querySelectorAll("[data-theme]");
-//   const navbarCta = document.querySelector(".navbar__cta");
-//   const navbarCtaTextCont = document.querySelectorAll(".navbar__cta-text");
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.getElementById("navbar");
+  const sections = document.querySelectorAll("[data-theme]");
+  const navbarCta = document.querySelector(".navbar__cta");
+  const navbarCtaTextCont = document.querySelectorAll(".navbar__cta-text");
 
-//   const followMarkup = `
-//   <span class="cta-text">Follow us</span>
-//   <span class="cta-sep">&nbsp;</span>
+  const followMarkup = `
+  <span class="cta-text">Follow us</span>
+  <span class="cta-sep">&nbsp;</span>
 
-//   (&nbsp;<span class="cta-social cta-li">
-//      <a href="https://www.linkedin.com/company/risqlyai"
-//        target="_blank"
-//        rel="noopener"
-//        class="cta-link navbar__cta-text-li">LI</a>
+  (&nbsp;<span class="cta-social cta-li">
+     <a href="https://www.linkedin.com/company/risqlyai"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-li">LI</a>
        
-//        <a href="https://www.linkedin.com/company/risqlyai"
-//        target="_blank"
-//        rel="noopener"
-//        class="cta-link navbar__cta-text-li">LI</a>
+       <a href="https://www.linkedin.com/company/risqlyai"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-li">LI</a>
     
-//   </span>&nbsp;)
+  </span>&nbsp;)
 
-//   <span class="cta-sep">&nbsp;&amp;&nbsp;</span>
+  <span class="cta-sep">&nbsp;&amp;&nbsp;</span>
 
-//   (&nbsp;<span class="cta-social cta-x">
-//      <a href="https://x.com/RisqlyAI"
-//        target="_blank"
-//        rel="noopener"
-//        class="cta-link navbar__cta-text-x">X</a>
+  (&nbsp;<span class="cta-social cta-x">
+     <a href="https://x.com/RisqlyAI"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-x">X</a>
 
-//        <a href="https://x.com/RisqlyAI"
-//        target="_blank"
-//        rel="noopener"
-//        class="cta-link navbar__cta-text-x">X</a>
-//   </span>&nbsp;)
-// `;
+       <a href="https://x.com/RisqlyAI"
+       target="_blank"
+       rel="noopener"
+       class="cta-link navbar__cta-text-x">X</a>
+  </span>&nbsp;)
+`;
 
-//   function updateNavbarTheme() {
-//     const scrollY = window.scrollY;
-//     const offset = 80; // adjust to navbar height
+  function updateNavbarTheme() {
+    const scrollY = window.scrollY;
+    const offset = 80; // adjust to navbar height
 
-//     const allSections = [...sections]; // your normal sections
+    const allSections = [...sections]; // your normal sections
 
-//     allSections.forEach((section) => {
-//       const rect = section.getBoundingClientRect();
-//       const sectionTop = scrollY + rect.top ;
-//       const sectionBottom = sectionTop + rect.height;
+    allSections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = scrollY + rect.top ;
+      const sectionBottom = sectionTop + rect.height;
 
-//       if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
-//         const currentTheme = section.dataset.theme || "light"; // fallback
+      if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
+        const currentTheme = section.dataset.theme || "light"; // fallback
 
-//         navbar.classList.remove("light-theme", "dark-theme");
-//         navbar.classList.add(`${currentTheme}-theme`);
+        navbar.classList.remove("light-theme", "dark-theme");
+        navbar.classList.add(`${currentTheme}-theme`);
 
-//         // Only apply CTA changes if it’s waitlist
-//         if (section.id === "waitlist") {
-//           navbarCta.dataset.disabled = "true";
-//           navbarCta.removeAttribute("href");
+        // Only apply CTA changes if it’s waitlist
+        if (section.id === "waitlist") {
+          navbarCta.dataset.disabled = "true";
+          navbarCta.removeAttribute("href");
 
-//           navbarCtaTextCont.forEach((el) => {
-//             el.innerHTML = followMarkup;
-//           });
-//         } else {
-//           navbarCta.dataset.disabled = "false";
-//           navbarCta.href = "#waitlist";
+          navbarCtaTextCont.forEach((el) => {
+            el.innerHTML = followMarkup;
+          });
+        } else {
+          navbarCta.dataset.disabled = "false";
+          navbarCta.href = "#waitlist";
 
-//           navbarCtaTextCont.forEach((el) => {
-//             el.textContent = "JOIN THE WAITLIST";
-//           });
-//         }
-//       }
-//     });
-//   }
+          navbarCtaTextCont.forEach((el) => {
+            el.textContent = "JOIN THE WAITLIST";
+          });
+        }
+      }
+    });
+  }
 
-//   function handleFooterThemeEarly() {
-//     const footer = document.querySelector("footer");
-//     if (!footer) return;
+  function handleFooterThemeEarly() {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
 
-//     function getFooterTriggerPoint() {
-//       if (window.innerWidth < 640) return window.innerHeight * 0.9; // mobile
-//       if (window.innerWidth < 1024) return window.innerHeight * 0.5; // tablet
-//       return window.innerHeight * 0.6; // desktop
-//     }
+    function getFooterTriggerPoint() {
+      if (window.innerWidth < 640) return window.innerHeight * 0.9; // mobile
+      if (window.innerWidth < 1024) return window.innerHeight * 0.5; // tablet
+      return window.innerHeight * 0.6; // desktop
+    }
 
-//     const footerRect = footer.getBoundingClientRect();
-//     const triggerPoint = getFooterTriggerPoint(); // 80% screen
+    const footerRect = footer.getBoundingClientRect();
+    const triggerPoint = getFooterTriggerPoint(); // 80% screen
 
-//     // 👉 It will trigger before footer
-//     if (footerRect.top <= triggerPoint) {
-//       navbar.classList.remove("light-theme", "dark-theme");
-//       navbar.classList.add("dark-theme"); // footer theme
+    // 👉 It will trigger before footer
+    if (footerRect.top <= triggerPoint) {
+      navbar.classList.remove("light-theme", "dark-theme");
+      navbar.classList.add("dark-theme"); // footer theme
 
-//       navbarCta.dataset.disabled = "true";
-//       navbarCta.removeAttribute("href");
-//     }
-//   }
+      navbarCta.dataset.disabled = "true";
+      navbarCta.removeAttribute("href");
+    }
+  }
 
-//   window.addEventListener("scroll", () => {
-//     updateNavbarTheme();
-//     handleFooterThemeEarly();
-//   });
+  window.addEventListener("scroll", () => {
+    updateNavbarTheme();
+    handleFooterThemeEarly();
+  });
 
-//   window.addEventListener("load", () => {
-//     updateNavbarTheme();
-//     handleFooterThemeEarly();
-//   });
-// });
+  window.addEventListener("load", () => {
+    updateNavbarTheme();
+    handleFooterThemeEarly();
+  });
+});
 
 // Initialize Features Swiper
 const featuresSwiper = new Swiper(".features__slider", {
