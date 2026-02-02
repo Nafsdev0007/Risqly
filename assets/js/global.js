@@ -47,26 +47,33 @@ window.addEventListener("scroll", () => {
 
 // Cookie
 document.addEventListener("DOMContentLoaded", (event) => {
-  // ✅ force starting position (hidden below)
-  gsap.set("#cookiePopup", {
-    transform: "translateY(calc(200% + 1.5625vw))",
-  });
-
-  const tl = gsap.timeline({ delay: 2 });
-
-  // 2) slow settle (last 20%)
-  tl.to("#cookiePopup", {
-    transform: "translateY(-8%)",
-    duration: 1.5,
-    ease: "power3.out",
-  },0.5);
+  // ENTRANCE ANIMATION
+  // autoAlpha handles both opacity and visibility
+  gsap.fromTo(
+    "#cookiePopup",
+    { y: 100, autoAlpha: 0 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 1.8,
+      delay: 2,
+      ease: "power3.out",
+    }
+  );
 });
 
 // EXIT ANIMATION
 function animateAway() {
   gsap.to("#cookiePopup", {
-    transform: "translateY(calc(200% + 1.5625vw))",
-    duration: 0.7,
-    ease: "cubic-bezier(0.06, 0, 0, 1)",
+    y: 100,
+    autoAlpha: 0,
+    duration: 1.5,
+    ease: "power3.in",
+    onComplete: () => {
+      // Optional: Completely remove from DOM or just keep hidden
+      document.getElementById("cookiePopup").style.display = "none";
+    },
   });
 }
+
+// cubic-bezier(0.06, 0, 0, 1)
