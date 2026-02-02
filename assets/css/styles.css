@@ -124,6 +124,7 @@
 
   .hero__label {
     gap: calc(4 * var(--scale));
+    opacity: 0;
   }
   .hero__label .star {
     font-size: calc(12 * var(--scale));
@@ -144,6 +145,7 @@
     height: calc(734 * var(--scale));
     margin-top: 0;
     max-width: 54%;
+    opacity: 0;
   }
   .hero__app-image {
     width: calc(760 * var(--scale));

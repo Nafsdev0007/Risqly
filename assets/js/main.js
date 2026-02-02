@@ -435,6 +435,9 @@ ScrollTrigger.batch(".hero", {
       mask: "lines",
     });
 
+    gsap.set(heroTitleSplit.words, { opacity: 0 });
+    gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
+
     gsap.fromTo(
       heroTitleSplit.words,
       { opacity: 0, y: 70 },
@@ -448,7 +451,7 @@ ScrollTrigger.batch(".hero", {
       }
     );
 
-    // gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
+    gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
 
     gsap.fromTo(
       heroDescriptionSplit.lines,
@@ -594,10 +597,14 @@ ScrollTrigger.create({
     const featureTitleSplit = new SplitText(".features__header .title", {
       type: "words",
     });
+
+    gsap.set(featureTitleSplit.words, { opacity: 0 });
+
     const featureDescriptionSplit = new SplitText(
       ".features__header .subtitle",
       { type: "lines", mask: "lines" }
     );
+    gsap.set(featureDescriptionSplit.lines, { opacity: 0 });
 
     gsap.fromTo(
       featureTitleSplit.words,
@@ -663,6 +670,8 @@ ScrollTrigger.create({
     const trainingTitleSplit = new SplitText(".training__content h2", {
       type: "words",
     });
+
+    gsap.set(trainingTitleSplit.words, { opacity: 0 });
 
     gsap.fromTo(
       trainingTitleSplit.words,
