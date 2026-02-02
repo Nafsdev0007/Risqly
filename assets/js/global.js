@@ -45,35 +45,35 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Cookie
-document.addEventListener("DOMContentLoaded", (event) => {
-  // ENTRANCE ANIMATION
-  // autoAlpha handles both opacity and visibility
-  gsap.fromTo(
-    "#cookiePopup",
-    { y: 100, autoAlpha: 0 },
-    {
-      y: 0,
-      autoAlpha: 1,
-      duration: 1.8,
-      delay: 2,
-      ease: "power3.out",
-    }
-  );
-});
+// // Cookie
+// document.addEventListener("DOMContentLoaded", (event) => {
+//   // ENTRANCE ANIMATION
+//   // autoAlpha handles both opacity and visibility
+//   gsap.fromTo(
+//     "#cookiePopup",
+//     { y: 100, autoAlpha: 0 },
+//     {
+//       y: 0,
+//       autoAlpha: 1,
+//       duration: 1.8,
+//       delay: 2,
+//       ease: "power3.out",
+//     }
+//   );
+// });
 
-// EXIT ANIMATION
-function animateAway() {
-  gsap.to("#cookiePopup", {
-    y: 100,
-    autoAlpha: 0,
-    duration: 1.5,
-    ease: "power3.in",
-    onComplete: () => {
-      // Optional: Completely remove from DOM or just keep hidden
-      document.getElementById("cookiePopup").style.display = "none";
-    },
-  });
-}
+// // EXIT ANIMATION
+// function animateAway() {
+//   gsap.to("#cookiePopup", {
+//     y: 100,
+//     autoAlpha: 0,
+//     duration: 1.5,
+//     ease: "power3.in",
+//     onComplete: () => {
+//       // Optional: Completely remove from DOM or just keep hidden
+//       document.getElementById("cookiePopup").style.display = "none";
+//     },
+//   });
+// }
 
 // cubic-bezier(0.06, 0, 0, 1)
