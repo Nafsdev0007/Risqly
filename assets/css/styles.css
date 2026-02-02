@@ -1866,6 +1866,40 @@ select.form__field__input:active {
   backface-visibility: hidden;
 }
 
+
+.cta-li {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+}
+
+.cta-x {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7px;
+}
+
+@media (min-width: 768px) {
+  .cta-li {
+    height: 2em;
+  }
+
+  .cta-x {
+    height: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-li {
+    height: 1.5em;
+  }
+
+  .cta-x {
+    height: 1.5em;
+  }
+}
+
+
 .cta-li:hover .navbar__cta-text-li:nth-child(1) {
   transform: translateY(-100%);
 }
