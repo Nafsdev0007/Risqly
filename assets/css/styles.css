@@ -335,6 +335,7 @@
 
 .stats__section {
   padding-top: calc(150 * var(--scale));
+  padding-bottom: calc(150 * var(--scale));
 }
 .stats__header .title {
   font-size: calc(54 * var(--scale));
@@ -482,12 +483,8 @@
   position: relative;
   padding: calc(150 * var(--scale)) 0 calc(80 * var(--scale));
   overflow: hidden;
-  margin-top: calc(150 * var(--scale));
 }
 
-.features-margin {
-  margin-top: calc(150 * var(--scale));
-}
 
 .features__background {
   position: absolute;
