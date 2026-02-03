@@ -46,6 +46,11 @@ window.addEventListener("scroll", () => {
 // Cookie
 document.addEventListener("DOMContentLoaded", (event) => {
   // ✅ force starting position (hidden below)
+
+  gsap.set(".cookie-card",{
+    opacity:1,
+  })
+
   gsap.set("#cookiePopup", {
     transform: "translateY(calc(200% + 1.5625vw))",
   });

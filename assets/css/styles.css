@@ -41,6 +41,7 @@
 }
 
 .hero__text {
+  opacity: 0;
   margin-top: calc(12 * var(--scale));
   max-width: calc(473 * var(--scale));
 }
@@ -505,6 +506,7 @@
 .features__header {
   text-align: center;
   margin-bottom: calc(40 * var(--scale));
+  opacity: 0;
 }
 
 .features__header .badge {
@@ -1279,6 +1281,7 @@
   }
   .training__content {
     padding-bottom: calc(80 * var(--scale));
+    opacity: 0;
   }
 
   .training__list {

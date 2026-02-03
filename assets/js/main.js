@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allSections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      const sectionTop = scrollY + rect.top ;
+      const sectionTop = scrollY + rect.top;
       const sectionBottom = sectionTop + rect.height;
 
       if (scrollY + offset >= sectionTop && scrollY + offset < sectionBottom) {
@@ -408,10 +408,41 @@ gsap.fromTo(
   { y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
 );
 
+const heroTitleSplit = new SplitText(".hero__title", { type: "words" });
+const heroDescriptionSplit = new SplitText(".hero__description", {
+  type: "lines",
+  mask: "lines",
+});
+const featureTitleSplit = new SplitText(".features__header .title", {
+  type: "words",
+});
+
+const featureDescriptionSplit = new SplitText(".features__header .subtitle", {
+  type: "lines",
+  mask: "lines",
+});
+
+gsap.set(".hero__text",{opacity:1})
+gsap.set(".features__header",{opacity:1})
+gsap.set(".training__content",{opacity:1})
+
+
+gsap.set(featureTitleSplit.words, { opacity: 0 });
+gsap.set(featureDescriptionSplit.lines, { opacity: 0 });
+
+gsap.set(heroTitleSplit.words, { opacity: 0 });
+gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
+
+
+
+const trainingTitleSplit = new SplitText(".training__content h2", {
+  type: "words",
+});
+
+gsap.set(trainingTitleSplit.words, { opacity: 0 });
 // Hero Section
 ScrollTrigger.batch(".hero", {
   onEnter: () => {
-    
     gsap.fromTo(
       ".hero__image",
       { opacity: 0 },
@@ -429,15 +460,6 @@ ScrollTrigger.batch(".hero", {
       { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
 
-    const heroTitleSplit = new SplitText(".hero__title", { type: "words" });
-    const heroDescriptionSplit = new SplitText(".hero__description", {
-      type: "lines",
-      mask: "lines",
-    });
-
-    gsap.set(heroTitleSplit.words, { opacity: 0 });
-    gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
-
     gsap.fromTo(
       heroTitleSplit.words,
       { opacity: 0, y: 70 },
@@ -450,8 +472,6 @@ ScrollTrigger.batch(".hero", {
         ease: "power3.out",
       }
     );
-
-    gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
 
     gsap.fromTo(
       heroDescriptionSplit.lines,
@@ -594,18 +614,6 @@ ScrollTrigger.create({
       { opacity: 1, y: 0, delay: 0.3, duration: 2, ease: "power3.out" }
     );
 
-    const featureTitleSplit = new SplitText(".features__header .title", {
-      type: "words",
-    });
-
-    gsap.set(featureTitleSplit.words, { opacity: 0 });
-
-    const featureDescriptionSplit = new SplitText(
-      ".features__header .subtitle",
-      { type: "lines", mask: "lines" }
-    );
-    gsap.set(featureDescriptionSplit.lines, { opacity: 0 });
-
     gsap.fromTo(
       featureTitleSplit.words,
       { opacity: 0, y: 70 },
@@ -667,12 +675,6 @@ ScrollTrigger.create({
       { opacity: 1, y: 0, delay: 0.15, duration: 2, ease: "power3.out" }
     );
 
-    const trainingTitleSplit = new SplitText(".training__content h2", {
-      type: "words",
-    });
-
-    gsap.set(trainingTitleSplit.words, { opacity: 0 });
-
     gsap.fromTo(
       trainingTitleSplit.words,
       { opacity: 0, y: 70 },
@@ -696,7 +698,14 @@ ScrollTrigger.create({
     gsap.fromTo(
       ".training__list li",
       { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, stagger: 0.2, delay:0.8, duration: 2, ease: "power3.out" }
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        delay: 0.8,
+        duration: 2,
+        ease: "power3.out",
+      }
     );
   },
   once: true,
