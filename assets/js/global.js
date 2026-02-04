@@ -44,33 +44,39 @@ window.addEventListener("scroll", () => {
 });
 
 // Cookie
-document.addEventListener("DOMContentLoaded", (event) => {
-  // ✅ force starting position (hidden below)
+document.addEventListener("DOMContentLoaded", () => {
 
-  gsap.set(".cookie-card",{
-    opacity:1,
-  })
+  const consent = localStorage.getItem("cookieConsent");
+
+  // ✅ force starting position
+  gsap.set(".cookie-card", {
+    opacity: 1,
+  });
 
   gsap.set("#cookiePopup", {
     transform: "translateY(calc(200% + 1.5625vw))",
   });
 
+  // 👉 যদি আগে decision নেয়া থাকে → আর কিছুই করবো না
+  if (consent) return;
+
   const tl = gsap.timeline({ delay: 2 });
 
-  // 1) very fast jump (80% distance)
+  // 1) fast jump
   tl.to("#cookiePopup", {
     transform: "translateY(-2%)",
     duration: 1.4,
     ease: "power3.out",
-  },'a',);
+  }, "a");
 
-  // 2) slow settle (last 20%)
+  // 2) slow settle
   tl.to("#cookiePopup", {
     transform: "translateY(-6%)",
     duration: 1.5,
     ease: "power3.out",
-  },0.5);
+  }, 0.5);
 });
+
 
 // EXIT ANIMATION
 function animateAway() {
@@ -79,4 +85,16 @@ function animateAway() {
     duration: 1,
     ease: "cubic-bezier(0.06, 0, 0, 1)",
   });
+}
+
+
+// ✅ BUTTON HANDLERS
+function acceptCookies() {
+  localStorage.setItem("cookieConsent", "accepted");
+  animateAway();
+}
+
+function declineCookies() {
+  localStorage.setItem("cookieConsent", "declined");
+  animateAway();
 }
