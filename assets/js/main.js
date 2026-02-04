@@ -696,7 +696,7 @@ ScrollTrigger.create({
       {
         opacity: 1,
         y: 0,
-        delay: 0.4,
+        delay: 0.6,
         stagger: 0.17,
         duration: 2,
         ease: "power3.out",
@@ -816,7 +816,6 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
         start: "top bottom",
         end: "bottom center",
         scrub: 0.5,
-        markers: false,
       },
     });
 
@@ -853,7 +852,6 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
         start: "top bottom",
         end: "bottom center",
         scrub: 0.5,
-        markers: false,
       },
     });
 
@@ -890,7 +888,6 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
         start: "top bottom",
         end: "bottom center",
         scrub: 0.3,
-        markers: true,
       },
     });
 
