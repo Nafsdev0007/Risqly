@@ -376,14 +376,9 @@ window.addEventListener("resize", updateFooterHeight);
 /* GSAP Animations */
 gsap.registerPlugin(ScrollTrigger, SplitText);
 // 1. Navbar
-gsap.set(".navbar",{scale:1})
+gsap.set(".navbar", { scale: 1 });
 
-
-gsap.fromTo(
-  ".navbar",
-  { y: -100,},
-  { y: 0, ease: "power3.out" }
-);
+gsap.fromTo(".navbar", { y: -100 }, { y: 0, ease: "power3.out" });
 
 gsap.fromTo(
   ".navbar__logo",
@@ -697,11 +692,12 @@ ScrollTrigger.create({
   onEnter: () => {
     gsap.fromTo(
       ".training__list li",
-      { opacity: 0, y: 60 },
+      { opacity: 0, y: 60,  },
       {
         opacity: 1,
         y: 0,
-        stagger: 0.2,
+        delay: 0.4,
+        stagger: 0.17,
         duration: 2,
         ease: "power3.out",
       }
@@ -893,34 +889,40 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
         trigger: section,
         start: "top bottom",
         end: "bottom center",
-        scrub: 0.5,
-        markers: false,
+        scrub: 0.3,
+        markers: true,
       },
     });
 
-    // Step 1: Enter animation
+    // 🔥 1️⃣ ENTER — BIG SCROLL SPACE
     tl.fromTo(
       section,
       {
         opacity: 0.9,
         clipPath: "inset(0% 1% 0% 1% round 1%)",
       },
-      { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
+      {
+        opacity: 1,
+        clipPath: "inset(0% 0% 0% 0% round 0%)",
+        ease: "none",
+        duration: 1.3, // 👈 this is the KEY
+      }
     );
 
-    // Step 2: Wait / gap effect
+    // 🟡 2️⃣ GAP — very small impact
     tl.to(section, {
       clipPath: "inset(0% 0% 0% 0% round 0%)",
       opacity: 1,
-      duration: 0.2, // short pause
+      duration: 1.4,
       ease: "none",
     });
 
-    // Step 3: Exit animation
+    // 🔴 3️⃣ EXIT — tiny scroll share
     tl.to(section, {
       opacity: 0.9,
       clipPath: "inset(0% 1% 0% 1% round 1%)",
       ease: "none",
+      duration: 0.5,
     });
   });
 });
