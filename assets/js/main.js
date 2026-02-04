@@ -376,10 +376,13 @@ window.addEventListener("resize", updateFooterHeight);
 /* GSAP Animations */
 gsap.registerPlugin(ScrollTrigger, SplitText);
 // 1. Navbar
+gsap.set(".navbar",{scale:1})
+
+
 gsap.fromTo(
   ".navbar",
-  { y: -100, opacity: 0 },
-  { y: 0, opacity: 1, ease: "power3.out" }
+  { y: -100,},
+  { y: 0, ease: "power3.out" }
 );
 
 gsap.fromTo(
@@ -699,7 +702,6 @@ ScrollTrigger.create({
         opacity: 1,
         y: 0,
         stagger: 0.2,
-        delay: 0.8,
         duration: 2,
         ease: "power3.out",
       }

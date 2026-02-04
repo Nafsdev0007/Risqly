@@ -533,7 +533,7 @@ h6,
   width: 100%;
   padding: calc(16 * var(--scale)) calc(16 * var(--scale))
     calc(10 * var(--scale));
-  opacity: 0;
+  scale: 0;
   position: fixed;
   top: 0;
   left: 0;
