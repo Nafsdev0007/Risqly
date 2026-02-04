@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function animateAway() {
   gsap.to("#cookiePopup", {
     transform: "translateY(calc(200% + 1.5625vw))",
-    duration: 0.5,
+    duration: 1,
     ease: "cubic-bezier(0.06, 0, 0, 1)",
   });
 }

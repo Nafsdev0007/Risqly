@@ -422,18 +422,15 @@ const featureDescriptionSplit = new SplitText(".features__header .subtitle", {
   mask: "lines",
 });
 
-gsap.set(".hero__text",{opacity:1})
-gsap.set(".features__header",{opacity:1})
-gsap.set(".training__content",{opacity:1})
-
+gsap.set(".hero__text", { opacity: 1 });
+gsap.set(".features__header", { opacity: 1 });
+gsap.set(".training__content", { opacity: 1 });
 
 gsap.set(featureTitleSplit.words, { opacity: 0 });
 gsap.set(featureDescriptionSplit.lines, { opacity: 0 });
 
 gsap.set(heroTitleSplit.words, { opacity: 0 });
 gsap.set(heroDescriptionSplit.lines, { opacity: 0 });
-
-
 
 const trainingTitleSplit = new SplitText(".training__content h2", {
   type: "words",
@@ -812,38 +809,116 @@ ScrollTrigger.create({
 
 // Scroll Scaling Sections (Parallax replacement)
 document.querySelectorAll(".scroll-scale").forEach((section) => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: "top bottom",
-      end: "bottom center",
-      scrub: true,
-      markers: false,
-    },
+  const mm = gsap.matchMedia();
+
+  mm.add("(max-width: 767px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "bottom center",
+        scrub: 0.5,
+        markers: false,
+      },
+    });
+
+    // Step 1: Enter animation
+    tl.fromTo(
+      section,
+      {
+        opacity: 0.9,
+        clipPath: "inset(0% 2.5% 0% 2.5% round 12px)",
+      },
+      { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "none" }
+    );
+
+    // Step 2: Wait / gap effect
+    tl.to(section, {
+      clipPath: "inset(0% 0% 0% 0% round 0%)",
+      opacity: 1,
+      duration: 0.4, // short pause
+      ease: "none",
+    });
+
+    // Step 3: Exit animation
+    tl.to(section, {
+      opacity: 0.9,
+      clipPath: "inset(0% 2.5% 0% 2.5% round 12px)",
+      ease: "none",
+    });
   });
 
-  // Step 1: Enter animation
-  tl.fromTo(
-    section,
-    {
+  mm.add("(min-width: 640px) and (max-width: 767px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "bottom center",
+        scrub: 0.5,
+        markers: false,
+      },
+    });
+
+    // Step 1: Enter animation
+    tl.fromTo(
+      section,
+      {
+        opacity: 0.9,
+        clipPath: "inset(0% 2% 0% 2% round 14px)",
+      },
+      { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "none" }
+    );
+
+    // Step 2: Wait / gap effect
+    tl.to(section, {
+      clipPath: "inset(0% 0% 0% 0% round 0%)",
+      opacity: 1,
+      duration: 0.4, // short pause
+      ease: "none",
+    });
+
+    // Step 3: Exit animation
+    tl.to(section, {
+      opacity: 0.9,
+      clipPath: "inset(0% 2% 0% 2% round 14px)",
+      ease: "none",
+    });
+  });
+
+  mm.add("(min-width:768px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "bottom center",
+        scrub: 0.5,
+        markers: false,
+      },
+    });
+
+    // Step 1: Enter animation
+    tl.fromTo(
+      section,
+      {
+        opacity: 0.9,
+        clipPath: "inset(0% 1% 0% 1% round 1%)",
+      },
+      { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
+    );
+
+    // Step 2: Wait / gap effect
+    tl.to(section, {
+      clipPath: "inset(0% 0% 0% 0% round 0%)",
+      opacity: 1,
+      duration: 0.2, // short pause
+      ease: "none",
+    });
+
+    // Step 3: Exit animation
+    tl.to(section, {
       opacity: 0.9,
       clipPath: "inset(0% 1% 0% 1% round 1%)",
-    },
-    { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 0%)", ease: "none" }
-  );
-
-  // Step 2: Wait / gap effect
-  tl.to(section, {
-    clipPath: "inset(0% 0% 0% 0% round 0%)",
-    opacity: 1,
-    duration: 0.8, // short pause
-    ease: "none",
-  });
-
-  // Step 3: Exit animation
-  tl.to(section, {
-    opacity: 0.9,
-    clipPath: "inset(0% 1% 0% 1% round 1%)",
-    ease: "none",
+      ease: "none",
+    });
   });
 });
