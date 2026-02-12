@@ -384,7 +384,8 @@
                 <p class="hero__description text-b1 text-b2-desktop">
                   Review hundreds of insurance quotes in minutes using an
                   AI-driven platform built to accelerate policy binding.
-                  Reviewed, flagged, automatically - that is, Risqly.
+                  Reviewed, flagged, automatically -
+                  <span>that is, Risqly.</span>
                 </p>
               </div>
 
@@ -1530,6 +1531,29 @@
       }
 
       requestAnimationFrame(raf);
+    </script>
+
+    <script>
+      function getBreakpoint() {
+        if (window.innerWidth >= 1536) return "2xl";
+        if (window.innerWidth >= 1280) return "xl";
+        if (window.innerWidth >= 1024) return "lg";
+        if (window.innerWidth >= 768) return "md";
+        if (window.innerWidth >= 640) return "sm";
+        return "xs";
+      }
+
+      let currentBreakpoint = getBreakpoint();
+
+      window.addEventListener("resize", function () {
+        let newBreakpoint = getBreakpoint();
+
+        if (newBreakpoint !== currentBreakpoint) {
+          location.reload();
+        }
+
+        currentBreakpoint = newBreakpoint;
+      });
     </script>
   </body>
 </html>

@@ -104,6 +104,13 @@
 }
 
 /* === RESPONSIVE === */
+
+@media (max-width:767px) {
+  .hero__description span{
+   display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .hero .container {
     padding-left: calc(64 * var(--scale));
@@ -140,6 +147,10 @@
     max-width: 50ch;
     margin-top: calc(16 * var(--scale));
   }
+
+  .hero__description span{
+    display: inline;
+   }
 
   .hero__image {
     width: calc(750 * var(--scale));
