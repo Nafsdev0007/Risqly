@@ -54,7 +54,6 @@
 .hero__description {
   color: var(--white-70);
   margin-top: calc(20 * var(--scale));
-  max-width: 30ch;
   opacity: 1;
 }
 
