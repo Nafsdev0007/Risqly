@@ -54,6 +54,7 @@
 .hero__description {
   color: var(--white-70);
   margin-top: calc(20 * var(--scale));
+  max-width: 30ch;
   opacity: 1;
 }
 
@@ -107,6 +108,12 @@
 @media (max-width:767px) {
   .hero__description span{
    display: block;
+  }
+}
+
+@media (max-width:500px) {
+  .hero__description {
+    width: 30ch;
   }
 }
 
