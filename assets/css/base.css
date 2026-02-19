@@ -789,12 +789,14 @@ h6,
   .navbar__logo {
     width: calc(144 * var(--scale));
   }
+  
   .navbar__menu a {
     color: var(--white);
     text-decoration: none;
     transition: color 0.2s;
     padding: calc(9 * var(--scale)) calc(12 * var(--scale));
     border-radius: calc(4 * var(--scale));
+    transition: all 0.3s ease;
   }
   .navbar__menu a:hover {
     background: rgba(0, 0, 0, 0.35);
@@ -1024,6 +1026,7 @@ h6,
 }
 .footer__credit span {
   color: var(--white);
+  transition: all 0.3s ease;
 }
 
 .footer__credit span:hover {
@@ -1108,6 +1111,7 @@ h6,
     padding: calc(11 * var(--scale));
     display: inline-block;
     border-radius: calc(4 * var(--scale));
+    transition: all 0.3s ease;
   }
   .footer__nav-col a:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -1153,6 +1157,7 @@ h6,
     position: relative;
     letter-spacing: 0.02em;
     padding: calc(6 * var(--scale));
+    transition: all 0.3s ease;
   }
   .footer__legal-link:not(:first-child)::before {
     content: "|";

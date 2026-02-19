@@ -105,13 +105,13 @@
 
 /* === RESPONSIVE === */
 
-@media (max-width:767px) {
-  .hero__description span{
-   display: block;
+@media (max-width: 767px) {
+  .hero__description span {
+    display: block;
   }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .hero__description {
     max-width: 50ch;
   }
@@ -154,9 +154,9 @@
     margin-top: calc(16 * var(--scale));
   }
 
-  .hero__description span{
+  .hero__description span {
     display: inline;
-   }
+  }
 
   .hero__image {
     width: calc(750 * var(--scale));
@@ -430,7 +430,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: top;
-  margin-top: calc(6 * var(--scale));
+  margin-top: calc(10 * var(--scale));
   margin-left: calc(6 * var(--scale));
 }
 .stat__data:last-child .stat__value::after {
@@ -469,6 +469,7 @@
   .stat__value::after {
     width: calc(24 * var(--scale));
     height: calc(24 * var(--scale));
+    margin-top: calc(12 * var(--scale));
     margin-left: calc(9 * var(--scale));
   }
   .stat__data:last-child .stat__value::after {
@@ -504,7 +505,6 @@
   padding: calc(150 * var(--scale)) 0 calc(80 * var(--scale));
   overflow: hidden;
 }
-
 
 .features__background {
   position: absolute;
@@ -1477,6 +1477,7 @@
 
 .workflow__mockup {
   margin-top: calc(32 * var(--scale));
+  position: relative;
 }
 .workflow__mockup img {
   margin: 0 calc(-53 * var(--scale)) calc(-133 * var(--scale));
@@ -1874,7 +1875,6 @@ select.form__field__input:active {
 
 .navbar__cta-text-li:nth-last-child(1) {
   display: none;
-
 }
 
 .navbar__cta-text-x:nth-last-child(1) {
@@ -1882,25 +1882,22 @@ select.form__field__input:active {
 }
 
 @media (min-width: 768px) {
-
   .navbar__cta-text-li:nth-last-child(1) {
     display: flex;
-  
   }
-  
+
   .navbar__cta-text-x:nth-last-child(1) {
     display: flex;
   }
-  
 
   .cta-li:hover .navbar__cta-text-li:nth-child(1) {
     transform: translateY(-100%);
   }
-  
+
   .cta-li:hover .navbar__cta-text-li:nth-last-child(1) {
     transform: translateY(-100%);
   }
-  
+
   .navbar__cta-text-x {
     display: flex;
     flex-direction: column;
@@ -1910,15 +1907,15 @@ select.form__field__input:active {
     will-change: transform;
     backface-visibility: hidden;
   }
-  
+
   .cta-x:hover .navbar__cta-text-x:nth-child(1) {
     transform: translateY(-100%);
   }
-  
+
   .cta-x:hover .navbar__cta-text-x:nth-last-child(1) {
     transform: translateY(-100%);
   }
-  
+
   .cta-li {
     height: 2em;
     display: flex;
@@ -1943,7 +1940,6 @@ select.form__field__input:active {
     height: 1.5em;
   }
 }
-
 
 @media (min-width: 1024px) {
   .navbar__cta-text-two {
