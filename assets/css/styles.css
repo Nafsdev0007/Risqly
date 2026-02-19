@@ -113,7 +113,7 @@
 
 @media (max-width:500px) {
   .hero__description {
-    max-width: 40ch;
+    max-width: 50ch;
   }
 }
 
