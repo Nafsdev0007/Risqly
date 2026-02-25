@@ -542,7 +542,7 @@ ScrollTrigger.create({
         Object.assign(container.style, {
           display: "inline-block",
           overflow: "hidden",
-          height: "1.1em",
+          height: "1em",
           lineHeight: "1.2em",
           verticalAlign: "top",
         });
