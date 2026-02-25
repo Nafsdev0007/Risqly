@@ -368,21 +368,17 @@
 .stats__data__wrapper {
   display: grid;
   grid-template-columns: auto auto;
-  gap: calc(10 * var(--scale)) calc(50 * var(--scale));
+  gap: calc(17 * var(--scale)) calc(50 * var(--scale));
   margin-top: calc(55 * var(--scale));
 }
 .stat__value {
   font-size: calc(76 * var(--scale));
   font-weight: 400;
-  line-height: 1;
   color: var(--dark);
+  line-height: 0.1;
   opacity: 0;
 }
 
-.stat__value div {
-  font-size: inherit;
-  line-height: 1.1em;
-}
 
 .stat__value span {
   vertical-align: top;
@@ -437,7 +433,6 @@
   margin-left: calc(-10 * var(--scale));
 }
 .stat__text {
-  margin-top: calc(2 * var(--scale));
   padding-left: calc(4 * var(--scale));
   opacity: 0;
 }

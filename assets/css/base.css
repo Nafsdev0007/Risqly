@@ -789,22 +789,43 @@ h6,
   .navbar__logo {
     width: calc(144 * var(--scale));
   }
-  
+
   .navbar__menu a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.2s;
     padding: calc(9 * var(--scale)) calc(12 * var(--scale));
     border-radius: calc(4 * var(--scale));
-    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    transition: color 0.3s ease; /* only animate color */
   }
-  .navbar__menu a:hover {
-    background: rgba(0, 0, 0, 0.35);
+  
+  .navbar__menu a::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* better than top/left/width/height */
+    background-color: #242A39;
+    border-radius: inherit;
+    z-index: -1;
+  
+    transform: scale(0.95);
+    opacity: 0;
+  
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
   }
+  
+  .navbar__menu a:hover::after {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  /* Light theme */
   .navbar.light-theme .navbar__menu a {
     color: var(--dark);
   }
-  .navbar.light-theme .navbar__menu a:hover {
+  
+  .navbar.light-theme .navbar__menu a::after {
     background-color: var(--grey);
   }
 }
@@ -870,8 +891,6 @@ h6,
     scale: 0;
   }
 
-
-
   .cookie-close:hover {
     color: var(--dark);
     /* background: white; */
@@ -914,6 +933,7 @@ h6,
 /* The Accept Button */
 .accept-btn {
   background-color: #ececf0;
+  position: relative;
   color: #0d1c3d;
   border: none;
   padding: 12px 20px;
@@ -922,15 +942,23 @@ h6,
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  z-index: 2;
   cursor: pointer;
-  transition: all 0.3s ease;
   width: 100%;
 }
 
+.accept-btn::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+
 /* Hover State (Right Image) */
-.accept-btn:hover {
+.accept-btn:hover::after {
   background-color: #fca311;
-  color: #0d1c3d;
 }
 
 /* ==========================================================
@@ -1111,12 +1139,34 @@ h6,
     padding: calc(11 * var(--scale));
     display: inline-block;
     border-radius: calc(4 * var(--scale));
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
+    position: relative;
   }
+
   .footer__nav-col a:hover {
-    background: rgba(255, 255, 255, 0.1);
     color: var(--white-70);
   }
+
+
+  .footer__nav-col a::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* better than top/left/width/height */
+    border-radius: inherit;
+    z-index: -1;
+  
+    transform: scale(0.95);
+    opacity: 0;
+  
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .footer__nav-col a:hover::after {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  
 
   /* Bottom Section */
   .footer__bottom {
