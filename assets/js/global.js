@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     transform: "translateY(calc(200% + 1.5625vw))",
   });
 
-  // 👉 যদি আগে decision নেয়া থাকে → আর কিছুই করবো না
   if (consent) return;
 
   const tl = gsap.timeline({ delay: 2 });

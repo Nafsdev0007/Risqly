@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const footerRect = footer.getBoundingClientRect();
     const triggerPoint = getFooterTriggerPoint(); // 80% screen
 
-    // 👉 It will trigger before footer
     if (footerRect.top <= triggerPoint) {
       navbar.classList.remove("light-theme", "dark-theme");
       navbar.classList.add("dark-theme"); // footer theme
@@ -891,7 +890,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
       },
     });
 
-    // 🔥 1️⃣ ENTER — BIG SCROLL SPACE
+    //  ENTER — BIG SCROLL SPACE
     tl.fromTo(
       section,
       {
@@ -906,7 +905,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
       }
     );
 
-    // 🟡 2️⃣ GAP — very small impact
+    // GAP — very small impact
     tl.to(section, {
       clipPath: "inset(0% 0% 0% 0% round 0%)",
       opacity: 1,
@@ -914,7 +913,7 @@ document.querySelectorAll(".scroll-scale").forEach((section) => {
       ease: "none",
     });
 
-    // 🔴 3️⃣ EXIT — tiny scroll share
+    // EXIT — tiny scroll share
     tl.to(section, {
       opacity: 0.9,
       clipPath: "inset(0% 1% 0% 1% round 1%)",
